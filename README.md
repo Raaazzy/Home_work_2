@@ -130,9 +130,11 @@ asdfg
 ### - В реализованной программе использовать функции с передачей данных через параметры.
 > файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/task.c)<br>
 
-Для реализации данного пункта использовалась отдельная функция Task, которая принимает параметры array[], size и *B:
+Для реализации данного пункта использовалась отдельные функции Task (с параметром char *str) и Task_random (с параметром int length):
 ```c
-int Task(int array[], int size,int *B)
+char * Task(const char *str)
+char * Task_random(int length)
+
 ```
 
 ### - Использовать локальные переменные.
@@ -141,19 +143,22 @@ int Task(int array[], int size,int *B)
 
 Локальные переменные, которые были использованы в функции main:
 ```c
-int A[max_size];
-int B[max_size];
-int a_size;
-int b_size;
 int i;
-struct timespec start;
-struct timespec end;
-FILE *input, *output;
+int length;
+FILE *input_stream;
+FILE *output_stream;
+time_t t_end;
+time_t t_start;
+int answer;
 ```
 Локальные переменные, которые были использованы в функции task:
 ```c
-int j;
-int counter = 0;
+int set_len;
+int i;
+int i;
+int length;
+char str[256];
+char str[256];
 ```
 ### - В ассемблерную программу при вызове функции добавить комментарии, описывающие передачу фактических параметров и перенос возвращаемого результата.
 > главный файл с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
