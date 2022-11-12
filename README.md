@@ -34,8 +34,12 @@
 
 # На 4 балла:
 ### - Приведено решение задачи на C.
+> главный файл с функцией main (после модификации) - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
+побочный файл с функцией task для создания массива B (после модификации) - [task.s](https://github.com/Raaazzy/Home_work_1/tree/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204)<br>
 
 ### - В полученную ассемблерную программу, откомпилированную без оптимизирующих и отладочных опций, добавлены комментарии, поясняющие эквивалентное представление переменных в программе на C.
+> главный файл с функцией main (после модификации) - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
+побочный файл с функцией task для создания массива B (после модификации) - [task.s](https://github.com/Raaazzy/Home_work_1/tree/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204)<br>
 
 ### - Из ассемблерной программы убраны лишние макросы за счет использования соответствующих аргументов командной строки:
 > главный файл с функцией main (после модификации) - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
@@ -43,37 +47,11 @@
 
 Убраны следующие строчки кода в файле main.s:<br>
 ```s
-	endbr64                                                       #50-я строка
+	endbr64 
 	
-	cdqe							      #109-я строка, 175-я строка и много где еще
+	cdqe
 
-	.size	main, .-main					      #346-я строка
-	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
-	.section	.note.GNU-stack,"",@progbits                          
-	.section	.note.gnu.property,"a"                                
-	.align 8                                                          
-	.long	 1f - 0f                                                    
-	.long	 4f - 1f                                                    
-	.long	 5                                                          
-0:                                                                      
-	.string	 "GNU"                                                
-1:                                                                      
-	.align 8                                                          
-	.long	 0xc0000002                                                 
-	.long	 3f - 2f                                                    
-2:                                                                      
-	.long	 0x3                                                        
-3:                                                                      
-	.align 8                                                          
-4:                                                                     #364-я строка
-```
-Убраны следующие строчки кода в файле task.s:<br>
-```s
-	endbr64                                                       #13-я строка
-	
-	cdqe							      #23-я строка, 31-я строка
-	
-	.size	Task, .-Task					      #53-я строка
+	.size	main, .-main
 	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
@@ -91,14 +69,40 @@
 	.long	 0x3
 3:
 	.align 8
-4:							     	       #70-я строка
+4:                                                                 
+```
+Убраны следующие строчки кода в файле task.s:<br>
+```s
+	endbr64
+	
+	cdqe
+	
+	.size	Task_file, .-Task_file
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	 1f - 0f
+	.long	 4f - 1f
+	.long	 5
+0:
+	.string	 "GNU"
+1:
+	.align 8
+	.long	 0xc0000002
+	.long	 3f - 2f
+2:
+	.long	 0x3
+3:
+	.align 8
+4:							     	  
 ```
 
 ### - Модифицированная ассемблерная программа отдельно откомпилирована и скомпонована без использования опций отладки.
 Скомпоновала программу, с помощью команд:
 ```s
-gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./main.c -S -o ./main.s
-gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./task.c -S -o ./task.s
+gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -fverbose-asm ./main.c -S -o ./main.s
+gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -fverbose-asm ./task.c -S -o ./task.s
 gcc ./main.s -c -o main.o
 gcc ./task.s -c -o task.o
 gcc ./task.o main.o -o program.exe
@@ -107,20 +111,20 @@ gcc ./task.o main.o -o program.exe
 ### - Представлено полное тестовое покрытие, дающее одинаковый результат на обоих программах.
 Программы были протестированы на следующих тестовых данных:
 ```
-1 1 -1 1 1
-1 2 3 4 5
--1 2 -3 4 -5
+a
 1
-0
-1 1 1 -8 1 1 1 1 1 1 0 1 1 1 -1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 -2
+abccba
+abcba
+qwe
+asdfg
 ```
 - Все тесты обе программы выполнили успешно, выдав одинаковый результат:
-1. ![image](https://user-images.githubusercontent.com/111382627/197212536-fc3b1770-199c-4c59-ab20-5bb58dc49624.png)
-2. ![image](https://user-images.githubusercontent.com/111382627/197213133-dcfe9a21-25b4-4591-8bee-8ae9e7984ed8.png)
-3. ![image](https://user-images.githubusercontent.com/111382627/197213258-ec63bf05-0158-4ac6-99a0-77fb263eb722.png)
-4. ![image](https://user-images.githubusercontent.com/111382627/197212745-a52ba679-308f-49a2-9af9-c8f1b93a4d9e.png)
-5. ![image](https://user-images.githubusercontent.com/111382627/197213394-beb79933-9387-4893-a6a9-de258e3d7cec.png)
-6. ![image](https://user-images.githubusercontent.com/111382627/197214039-5a71eaed-12f6-4571-9dc9-c0f0243a444d.png)
+1. ![image](https://user-images.githubusercontent.com/111382627/201492245-eff00004-f7dd-4b5e-b7b9-d160776fd10e.png)
+2. ![image](https://user-images.githubusercontent.com/111382627/201492259-0ec720b1-db87-445b-8c16-c6fa0892c642.png)
+3. ![image](https://user-images.githubusercontent.com/111382627/201492272-dbeb6ea0-ad8d-424e-8752-542b471fe8ca.png)
+4. ![image](https://user-images.githubusercontent.com/111382627/201492289-89ff0a28-1b64-4399-af75-cafe23883646.png)
+5. ![image](https://user-images.githubusercontent.com/111382627/201492311-4b0f9b30-fc17-467e-a2fd-72571cd488c0.png)
+6. ![image](https://user-images.githubusercontent.com/111382627/201492325-efeb5e34-0ba0-4e1c-9b22-94d3e4ac90e6.png)
 
 # На 5 баллов:
 ### - В реализованной программе использовать функции с передачей данных через параметры.
