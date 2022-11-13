@@ -268,6 +268,8 @@ fclose(output_stream);
 ![image](https://user-images.githubusercontent.com/111382627/201501648-f8cbaac1-702a-4b86-afde-e4afdb284464.png)
 ![image](https://user-images.githubusercontent.com/111382627/201501686-a805267c-822f-400d-8b2f-725c7b72fa10.png)
 
+С данными файлами можно протестировать программу лично: [тестовые данные](https://github.com/Raaazzy/Home_work_2/tree/main/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5)
+
 # На 8-9 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c)<br>
