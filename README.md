@@ -262,7 +262,7 @@ fprintf(output_stream, "%s ", Task(str));
 fclose(output_stream);
 ```
 
-### - Результат работы с текстовыми данными:
+### - Результат работы с тестовыми данными:
 ![image](https://user-images.githubusercontent.com/111382627/201501596-d9194038-8553-4eee-abfc-9dec1b116015.png)
 ![image](https://user-images.githubusercontent.com/111382627/201501623-1fa6ad7e-1625-4509-85c2-629d53aa1fd8.png)
 ![image](https://user-images.githubusercontent.com/111382627/201501648-f8cbaac1-702a-4b86-afde-e4afdb284464.png)
