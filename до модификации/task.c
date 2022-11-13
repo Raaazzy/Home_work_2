@@ -27,13 +27,11 @@ char * Task_random(int length) {
 }
 
 char * Task_file() {
-    char string[256], str[256];
+    char str[256];
     printf("Your string (you can enter a maximum of 256 characters):");
     fflush(stdin);
     getchar();
-    fgets(string, 256, stdin);
-    for (int i = 0; i < strlen(string) - 1; ++i) {
-        str[i] = string[i];
-    }
+    fgets(str, 256, stdin);
+    str[strlen(str)-1] = '\0';
     return Task(str);
 }

@@ -1,10 +1,3 @@
-# rbp-40 - str (Task)
-# rbp-20 - i
-# rbp-276 - length
-# rbp-8 - set_len
-# rbp-4 - i
-# rbp-544 - str (Task_file)
-
 	.file	"task.c"
 	.intel_syntax noprefix
 	.text
@@ -88,7 +81,7 @@ Task:
 Task_random:
 	endbr64	
 	push	rbp	
-	mov	rbp, rsp	
+	mov	rbp, rsp
 	sub	rsp, 288	
 	mov	DWORD PTR -276[rbp], edi	# length, length
 # ./task.c:19:     int set_len = strlen(SET);
@@ -151,10 +144,9 @@ Task_random:
 	.type	Task_file, @function
 Task_file:
 	endbr64	
-	push	rbp
+	push	rbp	
 	mov	rbp, rsp	
-	push	rbx	
-	sub	rsp, 536	
+	sub	rsp, 256	
 # ./task.c:31:     printf("Your string (you can enter a maximum of 256 characters):");
 	lea	rdi, .LC4[rip]	
 	mov	eax, 0	
@@ -165,48 +157,26 @@ Task_file:
 	call	fflush@PLT	
 # ./task.c:33:     getchar();
 	call	getchar@PLT	
-# ./task.c:34:     fgets(string, 256, stdin);
+# ./task.c:34:     fgets(str, 256, stdin);
 	mov	rdx, QWORD PTR stdin[rip]	# stdin.1_2, stdin
-	lea	rax, -288[rbp]	# tmp90,
+	lea	rax, -256[rbp]	# tmp88,
 	mov	esi, 256	
-	mov	rdi, rax	#, tmp90
+	mov	rdi, rax	#, tmp88
 	call	fgets@PLT	
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	mov	DWORD PTR -20[rbp], 0	# i,
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	jmp	.L11	
-.L12:
-# ./task.c:36:         str[i] = string[i];
-	mov	eax, DWORD PTR -20[rbp]	# tmp92, i
-	cdqe
-	movzx	edx, BYTE PTR -288[rbp+rax]	# _3, string
-# ./task.c:36:         str[i] = string[i];
-	mov	eax, DWORD PTR -20[rbp]	# tmp94, i
-	cdqe
-	mov	BYTE PTR -544[rbp+rax], dl	# str, _3
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	add	DWORD PTR -20[rbp], 1	# i,
-.L11:
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	mov	eax, DWORD PTR -20[rbp]	# tmp95, i
-	movsx	rbx, eax	# _4, tmp95
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	lea	rax, -288[rbp]	# tmp96,
-	mov	rdi, rax	#, tmp96
+# ./task.c:35:     str[strlen(str)-1] = '\0';
+	lea	rax, -256[rbp]	# tmp89,
+	mov	rdi, rax	#, tmp89
 	call	strlen@PLT	
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	sub	rax, 1	# _6,
-# ./task.c:35:     for (int i = 0; i < strlen(string) - 1; ++i) {
-	cmp	rbx, rax	# _4, _6
-	jb	.L12	
-# ./task.c:38:     return Task(str);
-	lea	rax, -544[rbp]	# tmp97,
-	mov	rdi, rax	#, tmp97
+# ./task.c:35:     str[strlen(str)-1] = '\0';
+	sub	rax, 1	# _4,
+# ./task.c:35:     str[strlen(str)-1] = '\0';
+	mov	BYTE PTR -256[rbp+rax], 0	# str,
+# ./task.c:36:     return Task(str);
+	lea	rax, -256[rbp]	# tmp90,
+	mov	rdi, rax	#, tmp90
 	call	Task	
-# ./task.c:39: }
-	add	rsp, 536	
-	pop	rbx	
-	pop	rbp	
+# ./task.c:37: }
+	leave	
 	ret	
 	.size	Task_file, .-Task_file
 	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"

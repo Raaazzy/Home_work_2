@@ -11,8 +11,8 @@ extern char * Task_file();
 int main(int argc, char *argv[]) {
     // Ввод с помощью консоли
     if (argc == 2) {
-        time_t t_start = clock();
         printf("String: %s\n", argv[1]);
+        time_t t_start = clock();
         for (int i = 0; i < 25000000; ++i) {
             Task(argv[1]);
         }
@@ -33,7 +33,10 @@ int main(int argc, char *argv[]) {
         fgets(arr_str, sizeof(arr_str), input_stream);
         fclose(input_stream);
         FILE *output_stream = fopen(argv[2], "w");
-        fprintf(output_stream, "%s ", Task(arr_str));
+        for (int i = 0; i < strlen(arr_str) - 1; ++i) {
+        	str[i] = arr_str[i];
+    	}
+        fprintf(output_stream, "%s ", Task(str));
         fclose(output_stream);
         return 0;
     }
