@@ -10,7 +10,7 @@
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c), [main.s](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.s)<br>
 побочный файл с функцией task для проверки строки на палиндром - [task.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.c), [task.s](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.s)<br>
 
-# Пояснения к запуску и эксплуатации:
+# <a name="explanation">Пояснения к запуску и эксплуатации:</a>
 Чтобы запустить программу необходимо с необходимым режимом следует ввести следующие команды:<br>
 - С использованием аргументов командной строки:
 
@@ -276,7 +276,7 @@ fclose(output_stream);
 ![image](https://user-images.githubusercontent.com/111382627/201501648-f8cbaac1-702a-4b86-afde-e4afdb284464.png)
 ![image](https://user-images.githubusercontent.com/111382627/201501686-a805267c-822f-400d-8b2f-725c7b72fa10.png)
 
-# На 8-9 баллов:
+# На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c)<br>
 побочный файл с функцией task - [task.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.c)<br>
@@ -308,12 +308,13 @@ char * Task_random(int length) {
 побочный файл с функцией task - [task.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.c)<br>
 
 Проверяю количество элементов введенных в консоль:<br>
-- если равено 2, то значит, что пользователь выбрал ввод с консоли.<br>
+- если равно 2, то значит, что пользователь выбрал ввод с консоли.<br>
 - если равен 3, то значит, что пользователь выбрал ввод с файла.<br>
 ```c
         if (argc == 2) {}
         if (argc == 3) {}
 ```
+А какие именно аргументы стоит вводить можно посмотреть [здесь](#explanation).
 
 ### - Добавены замеры во времени, которые не учитывают время ввода и вывода данных.
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_2/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c)<br>
